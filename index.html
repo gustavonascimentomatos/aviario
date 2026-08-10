@@ -12,17 +12,23 @@
 
 <body>
 
+    <!-- HEADER -->
+
     <header class="header">
 
         <div class="header-content">
 
             <div class="brand">
-                <div class="brand-icon">🐦</div>
+
+                <div class="brand-icon">
+                    🐦
+                </div>
 
                 <div>
                     <h1>Aviário</h1>
                     <span>Controle de Reprodução</span>
                 </div>
+
             </div>
 
             <div class="header-status">
@@ -37,44 +43,170 @@
 
     <main>
 
-        <!-- ==============================
-             TELA PRINCIPAL
-        =============================== -->
+        <!-- =========================================
+             PÁGINA PRINCIPAL
+        ========================================== -->
 
         <section id="homePage" class="page">
 
             <div class="page-title">
 
-                <div>
-                    <span class="eyebrow">PLANTEL</span>
+                <span class="eyebrow">
+                    PLANTEL
+                </span>
 
-                    <h2>Minhas Gaiolas</h2>
+                <h2>
+                    Controle do Aviário
+                </h2>
 
-                    <p>
-                        Selecione uma gaiola para acompanhar
-                        o casal e seu histórico reprodutivo.
-                    </p>
-                </div>
+                <p>
+                    Gerencie suas gaiolas e acompanhe
+                    individualmente cada ave.
+                </p>
 
             </div>
 
 
-            <div class="gaiolas" id="gaiolasContainer"></div>
+            <!-- NAVEGAÇÃO -->
+
+            <div class="main-tabs">
+
+                <button
+                    id="tabGaiolas"
+                    class="main-tab active"
+                    onclick="mostrarGaiolas()"
+                >
+                    🏠 Gaiolas
+                </button>
+
+                <button
+                    id="tabAves"
+                    class="main-tab"
+                    onclick="mostrarAves()"
+                >
+                    🐦 Aves
+                </button>
+
+            </div>
+
+
+            <!-- =====================================
+                 GAIOLAS
+            ====================================== -->
+
+            <div id="gaiolasView">
+
+                <div class="view-title">
+
+                    <div>
+
+                        <h3>
+                            Minhas Gaiolas
+                        </h3>
+
+                        <p>
+                            Selecione uma gaiola para
+                            acompanhar sua reprodução.
+                        </p>
+
+                    </div>
+
+                    <div class="view-count">
+                        5 gaiolas
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="gaiolas"
+                    id="gaiolasContainer"
+                ></div>
+
+            </div>
+
+
+            <!-- =====================================
+                 AVES
+            ====================================== -->
+
+            <div
+                id="avesView"
+                style="display: none;"
+            >
+
+                <div class="view-title">
+
+                    <div>
+
+                        <h3>
+                            Minhas Aves
+                        </h3>
+
+                        <p>
+                            Selecione uma ave para
+                            acompanhar seu histórico.
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="view-count"
+                        id="avesCount"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="aves-grid"
+                    id="avesContainer"
+                ></div>
+
+            </div>
 
         </section>
 
 
-        <!-- ==============================
-             TELA INDIVIDUAL DA GAIOLA
-        =============================== -->
+        <!-- =========================================
+             PÁGINA INDIVIDUAL DA GAIOLA
+        ========================================== -->
 
-        <section id="gaiolaPage" class="page detail-page">
+        <section
+            id="gaiolaPage"
+            class="page detail-page"
+        >
 
-            <button class="back-button" onclick="voltar()">
-                ← Voltar para gaiolas
+            <button
+                class="back-button"
+                onclick="voltar()"
+            >
+                ← Voltar
             </button>
 
             <div id="gaiolaContent"></div>
+
+        </section>
+
+
+        <!-- =========================================
+             PÁGINA INDIVIDUAL DA AVE
+        ========================================== -->
+
+        <section
+            id="avePage"
+            class="page detail-page"
+        >
+
+            <button
+                class="back-button"
+                onclick="voltarAves()"
+            >
+                ← Voltar para aves
+            </button>
+
+            <div id="aveContent"></div>
 
         </section>
 

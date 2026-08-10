@@ -1067,3 +1067,932 @@ function voltar() {
 // ============================================
 
 renderGaiolas();
+
+// ============================================
+// NAVEGAÇÃO ENTRE GAIOLAS E AVES
+// ============================================
+
+function mostrarGaiolas() {
+
+    document.getElementById("gaiolasView").style.display = "block";
+
+    document.getElementById("avesView").style.display = "none";
+
+    document.getElementById("tabGaiolas").classList.add("active");
+
+    document.getElementById("tabAves").classList.remove("active");
+}
+
+
+function mostrarAves() {
+
+    document.getElementById("gaiolasView").style.display = "none";
+
+    document.getElementById("avesView").style.display = "block";
+
+    document.getElementById("tabGaiolas").classList.remove("active");
+
+    document.getElementById("tabAves").classList.add("active");
+
+    renderAves();
+}
+
+
+// ============================================
+// CRIAR LISTA DE AVES
+// ============================================
+
+function obterTodasAsAves() {
+
+    const aves = [];
+
+    gaiolas.forEach(function(gaiola) {
+
+        aves.push({
+            ...gaiola.macho,
+
+            sexo: "Macho",
+
+            gaiola: gaiola,
+
+            tipo: "macho"
+        });
+
+
+        aves.push({
+            ...gaiola.femea,
+
+            sexo: "Fêmea",
+
+            gaiola: gaiola,
+
+            tipo: "femea"
+        });
+
+    });
+
+
+    return aves;
+}
+
+
+// ============================================
+// RENDERIZAR AVES
+// ============================================
+
+function renderAves() {
+
+    const container =
+        document.getElementById("avesContainer");
+
+    const count =
+        document.getElementById("avesCount");
+
+
+    const aves = obterTodasAsAves();
+
+
+    container.innerHTML = "";
+
+
+    count.textContent =
+        `${aves.length} aves`;
+
+
+    aves.forEach(function(ave) {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className = "ave-card";
+
+
+        card.addEventListener(
+            "click",
+            function() {
+
+                abrirAve(
+                    ave.gaiola.id,
+                    ave.tipo
+                );
+
+            }
+        );
+
+
+        const status =
+            ave.gaiola.status;
+
+
+        const statusTexto =
+            status === "reproduzindo"
+                ? "EM REPRODUÇÃO"
+                : "EM DESCANSO";
+
+
+        const parceiro =
+            ave.tipo === "macho"
+                ? ave.gaiola.femea
+                : ave.gaiola.macho;
+
+
+        card.innerHTML = `
+
+            <div class="ave-card-top">
+
+                <div class="ave-card-identificacao">
+
+                    <div class="ave-avatar">
+                        ${ave.sexo === "Macho" ? "♂" : "♀"}
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            ${ave.nome}
+                        </h3>
+
+                        <div class="ave-card-subtitle">
+                            ${ave.raca}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ave-status ${status}">
+
+                    ${statusTexto}
+
+                </div>
+
+            </div>
+
+
+            <div class="ave-card-info">
+
+                <div class="ave-info-box">
+
+                    <div class="ave-info-label">
+                        Anilha
+                    </div>
+
+                    <div class="ave-info-value">
+                        ${ave.anilha}
+                    </div>
+
+                </div>
+
+
+                <div class="ave-info-box">
+
+                    <div class="ave-info-label">
+                        Cor
+                    </div>
+
+                    <div class="ave-info-value">
+                        ${ave.cor}
+                    </div>
+
+                </div>
+
+
+                <div class="ave-info-box">
+
+                    <div class="ave-info-label">
+                        Gaiola
+                    </div>
+
+                    <div class="ave-info-value">
+                        ${ave.gaiola.numero}
+                    </div>
+
+                </div>
+
+
+                <div class="ave-info-box">
+
+                    <div class="ave-info-label">
+                        Parceiro
+                    </div>
+
+                    <div class="ave-info-value">
+                        ${parceiro.nome}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ave-card-footer">
+
+                <span>
+                    Ver ficha da ave
+                </span>
+
+                <span>
+                    →
+                </span>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+// ============================================
+// ABRIR AVE
+// ============================================
+
+function abrirAve(gaiolaId, tipo) {
+
+    const gaiola =
+        gaiolas.find(function(item) {
+
+            return item.id === gaiolaId;
+
+        });
+
+
+    if (!gaiola) {
+        return;
+    }
+
+
+    const ave =
+        tipo === "macho"
+            ? gaiola.macho
+            : gaiola.femea;
+
+
+    const parceiro =
+        tipo === "macho"
+            ? gaiola.femea
+            : gaiola.macho;
+
+
+    renderAveDetalhes(
+        ave,
+        parceiro,
+        gaiola,
+        tipo
+    );
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "gaiolaPage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "avePage"
+    ).style.display = "block";
+
+
+    window.scrollTo(0, 0);
+}
+
+
+// ============================================
+// HISTÓRICO DA AVE
+// ============================================
+
+function obterHistoricoDaAve(gaiola) {
+
+    return gaiola.historico.map(function(reproducao) {
+
+        return {
+            ...reproducao,
+
+            gaiola: gaiola.numero
+        };
+
+    });
+
+}
+
+
+// ============================================
+// RENDERIZAR FICHA DA AVE
+// ============================================
+
+function renderAveDetalhes(
+    ave,
+    parceiro,
+    gaiola,
+    tipo
+) {
+
+    const atual =
+        gaiola.atual;
+
+
+    const sexo =
+        tipo === "macho"
+            ? "Macho"
+            : "Fêmea";
+
+
+    const simbolo =
+        tipo === "macho"
+            ? "♂"
+            : "♀";
+
+
+    const statusTexto =
+        gaiola.status === "reproduzindo"
+            ? "EM REPRODUÇÃO"
+            : "EM DESCANSO";
+
+
+    // ----------------------------------------
+    // FILHOTES
+    // ----------------------------------------
+
+    let filhotesHTML = "";
+
+
+    if (atual.filhotes.length === 0) {
+
+        filhotesHTML = `
+            <div style="
+                color:#64748b;
+                font-size:12px;
+                text-align:center;
+                padding:15px;
+            ">
+                Nenhum filhote registrado na
+                reprodução atual.
+            </div>
+        `;
+
+    } else {
+
+        atual.filhotes.forEach(function(filhote) {
+
+            filhotesHTML += `
+
+                <div class="filhote">
+
+                    <div class="filhote-icon">
+                        🐥
+                    </div>
+
+                    <div>
+
+                        <div class="filhote-nome">
+                            ${filhote.anilha}
+                        </div>
+
+                        <div class="filhote-info">
+                            ${filhote.cor} ·
+                            ${filhote.raca}
+                        </div>
+
+                    </div>
+
+                    <div class="filhote-sexo">
+
+                        ${
+                            filhote.sexo === "Macho"
+                                ? "♂"
+                                : "♀"
+                        }
+
+                        ${filhote.sexo}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    // ----------------------------------------
+    // EVENTOS
+    // ----------------------------------------
+
+    let eventosHTML = "";
+
+
+    atual.eventos.forEach(function(evento) {
+
+        eventosHTML += `
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    ${evento.data}
+                </div>
+
+                <div class="timeline-title">
+                    ${evento.titulo}
+                </div>
+
+                <div class="timeline-description">
+                    ${evento.descricao}
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    // ----------------------------------------
+    // HISTÓRICO
+    // ----------------------------------------
+
+    const historico =
+        obterHistoricoDaAve(gaiola);
+
+
+    let historicoHTML = "";
+
+
+    historico.forEach(function(reproducao) {
+
+        let percentual = 0;
+
+
+        if (reproducao.nascidos > 0) {
+
+            percentual = Math.round(
+
+                (
+                    reproducao.sobreviventes /
+                    reproducao.nascidos
+                ) * 100
+
+            );
+
+        }
+
+
+        let resultadoTexto =
+            "REGULAR";
+
+
+        if (
+            reproducao.resultado ===
+            "excelente"
+        ) {
+
+            resultadoTexto = "EXCELENTE";
+
+        }
+
+
+        if (
+            reproducao.resultado ===
+            "baixo"
+        ) {
+
+            resultadoTexto = "BAIXO";
+
+        }
+
+
+        historicoHTML += `
+
+            <div class="ave-historico-item">
+
+                <div class="ave-historico-top">
+
+                    <div>
+
+                        <h4>
+                            ${reproducao.periodo}
+                        </h4>
+
+                        <div class="ave-historico-date">
+
+                            Gaiola ${reproducao.gaiola}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="resultado ${reproducao.resultado}">
+
+                        ${resultadoTexto}
+
+                    </div>
+
+                </div>
+
+
+                <div class="ave-historico-numbers">
+
+                    <div class="ave-history-number">
+
+                        <strong>
+                            ${reproducao.ovos}
+                        </strong>
+
+                        <span>
+                            OVOS
+                        </span>
+
+                    </div>
+
+
+                    <div class="ave-history-number">
+
+                        <strong>
+                            ${reproducao.nascidos}
+                        </strong>
+
+                        <span>
+                            NASCIDOS
+                        </span>
+
+                    </div>
+
+
+                    <div class="ave-history-number">
+
+                        <strong>
+                            ${percentual}%
+                        </strong>
+
+                        <span>
+                            SUCESSO
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reproducao-casal">
+
+                    <strong>
+                        Casal:
+                    </strong>
+
+                    ${reproducao.casal}
+
+                </div>
+
+
+                <div class="reproducao-observacao">
+
+                    <strong>
+                        Observação:
+                    </strong>
+
+                    ${reproducao.observacao}
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    // ----------------------------------------
+    // HTML DA FICHA
+    // ----------------------------------------
+
+    document.getElementById(
+        "aveContent"
+    ).innerHTML = `
+
+        <!-- CABEÇALHO -->
+
+        <div class="ave-detail-header">
+
+            <div class="ave-detail-header-top">
+
+                <div class="ave-detail-identificacao">
+
+                    <div class="ave-detail-avatar">
+
+                        ${simbolo}
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            ${ave.nome}
+                        </h2>
+
+                        <p>
+                            ${sexo} · ${ave.raca}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ave-status ${gaiola.status}">
+
+                    ${statusTexto}
+
+                </div>
+
+            </div>
+
+
+            <div class="ave-data-grid">
+
+                <div class="ave-data">
+
+                    <span>
+                        Anilha
+                    </span>
+
+                    <strong>
+                        ${ave.anilha}
+                    </strong>
+
+                </div>
+
+
+                <div class="ave-data">
+
+                    <span>
+                        Cor
+                    </span>
+
+                    <strong>
+                        ${ave.cor}
+                    </strong>
+
+                </div>
+
+
+                <div class="ave-data">
+
+                    <span>
+                        Raça
+                    </span>
+
+                    <strong>
+                        ${ave.raca}
+                    </strong>
+
+                </div>
+
+
+                <div class="ave-data">
+
+                    <span>
+                        Sexo
+                    </span>
+
+                    <strong>
+                        ${sexo}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTEXTO -->
+
+        <div class="detail-section">
+
+            <div class="section-heading">
+
+                <div class="section-heading-icon">
+                    🏠
+                </div>
+
+                <h3>
+                    Situação atual
+                </h3>
+
+            </div>
+
+
+            <div class="ave-context">
+
+                <div class="context-box">
+
+                    <div class="context-label">
+                        Gaiola atual
+                    </div>
+
+                    <div class="context-value">
+                        Gaiola ${gaiola.numero}
+                    </div>
+
+                    <div class="context-detail">
+                        Casal reprodutor
+                    </div>
+
+                </div>
+
+
+                <div class="context-box">
+
+                    <div class="context-label">
+                        Parceiro(a) atual
+                    </div>
+
+                    <div class="context-value">
+                        ${parceiro.nome}
+                    </div>
+
+                    <div class="context-detail">
+
+                        ${parceiro.anilha} ·
+                        ${parceiro.cor}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- REPRODUÇÃO ATUAL -->
+
+        <div class="detail-section">
+
+            <div class="section-heading">
+
+                <div class="section-heading-icon">
+                    🥚
+                </div>
+
+                <h3>
+                    Reprodução atual
+                </h3>
+
+            </div>
+
+
+            <div class="status-grid">
+
+                <div class="status-box">
+
+                    <strong>
+                        ${atual.ovos}
+                    </strong>
+
+                    <span>
+                        Ovos
+                    </span>
+
+                </div>
+
+
+                <div class="status-box">
+
+                    <strong>
+                        ${atual.filhotes.length}
+                    </strong>
+
+                    <span>
+                        Filhotes
+                    </span>
+
+                </div>
+
+
+                <div class="status-box">
+
+                    <strong>
+                        ${atual.preparacao}
+                    </strong>
+
+                    <span>
+                        Preparação
+                    </span>
+
+                </div>
+
+
+                <div class="status-box">
+
+                    <strong>
+                        ${atual.choco}
+                    </strong>
+
+                    <span>
+                        Início do choco
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline">
+
+                ${eventosHTML}
+
+            </div>
+
+        </div>
+
+
+        <!-- FILHOTES -->
+
+        <div class="detail-section">
+
+            <div class="section-heading">
+
+                <div class="section-heading-icon">
+                    🐥
+                </div>
+
+                <h3>
+                    Filhotes da reprodução atual
+                </h3>
+
+            </div>
+
+
+            <div class="filhotes">
+
+                ${filhotesHTML}
+
+            </div>
+
+        </div>
+
+
+        <!-- HISTÓRICO -->
+
+        <div class="detail-section">
+
+            <div class="section-heading">
+
+                <div class="section-heading-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Histórico reprodutivo
+                </h3>
+
+            </div>
+
+
+            <div class="ave-historico">
+
+                ${historicoHTML}
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+// ============================================
+// VOLTAR DA AVE
+// ============================================
+
+function voltarAves() {
+
+    document.getElementById(
+        "avePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "block";
+
+
+    mostrarAves();
+
+
+    window.scrollTo(0, 0);
+}
