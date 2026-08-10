@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle de Reprodução</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <div class="brand">
+                <div class="brand-icon">🐦</div>
+
+                <div>
+                    <h1>Aviário</h1>
+                    <span>Controle de Reprodução</span>
+                </div>
+            </div>
+
+            <div class="header-status">
+                <span></span>
+                Sistema ativo
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ==============================
+             TELA PRINCIPAL
+        =============================== -->
+
+        <section id="homePage" class="page">
+
+            <div class="page-title">
+
+                <div>
+                    <span class="eyebrow">PLANTEL</span>
+
+                    <h2>Minhas Gaiolas</h2>
+
+                    <p>
+                        Selecione uma gaiola para acompanhar
+                        o casal e seu histórico reprodutivo.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="gaiolas" id="gaiolasContainer"></div>
+
+        </section>
+
+
+        <!-- ==============================
+             TELA INDIVIDUAL DA GAIOLA
+        =============================== -->
+
+        <section id="gaiolaPage" class="page detail-page">
+
+            <button class="back-button" onclick="voltar()">
+                ← Voltar para gaiolas
+            </button>
+
+            <div id="gaiolaContent"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
