@@ -1,45 +1,55 @@
+/* =========================================
+   RESET
+========================================= */
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 
 :root {
 
-    --primary: #2f6fed;
-    --primary-dark: #1e4fb8;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --background: #f4f7fb;
+
+    --white: #ffffff;
+
+    --text: #172033;
+    --text-light: #64748b;
+
+    --border: #e2e8f0;
 
     --green: #16a34a;
     --green-bg: #dcfce7;
 
-    --orange: #d97706;
-    --orange-bg: #fef3c7;
+    --orange: #ea580c;
+    --orange-bg: #ffedd5;
 
     --red: #dc2626;
     --red-bg: #fee2e2;
 
-    --background: #f5f7fa;
-    --white: #ffffff;
+    --blue-bg: #eff6ff;
 
-    --text: #172033;
-    --muted: #64748b;
-
-    --border: #e2e8f0;
+    --radius: 14px;
 }
 
 
-/* =====================================
-   BASE
-===================================== */
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
 
     font-family:
+        Inter,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
-        Arial,
         sans-serif;
 
     background: var(--background);
@@ -50,42 +60,56 @@ body {
 }
 
 
-button {
-    font-family: inherit;
+button,
+input {
+
+    font: inherit;
 }
 
 
-/* =====================================
+button {
+
+    cursor: pointer;
+}
+
+
+/* =========================================
    HEADER
-===================================== */
+========================================= */
 
 .header {
 
     background: var(--white);
 
-    border-bottom: 1px solid var(--border);
+    border-bottom:
+        1px solid var(--border);
 
     position: sticky;
 
     top: 0;
 
-    z-index: 20;
+    z-index: 100;
 }
 
 
 .header-content {
 
-    max-width: 1050px;
+    width: min(1100px, 100%);
 
     margin: auto;
 
-    padding: 16px 20px;
+    min-height: 68px;
+
+    padding:
+        10px 20px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
+
+    gap: 20px;
 }
 
 
@@ -95,65 +119,64 @@ button {
 
     align-items: center;
 
-    gap: 12px;
+    gap: 11px;
 }
 
 
 .brand-icon {
 
-    width: 44px;
-    height: 44px;
+    width: 42px;
+
+    height: 42px;
 
     border-radius: 12px;
 
-    background: var(--primary);
+    background: var(--blue-bg);
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     font-size: 22px;
 }
 
 
-.brand h1 {
+.brand-text h1 {
 
-    font-size: 18px;
+    font-size: 17px;
 
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 
-.brand span {
+.brand-text span {
 
-    display: block;
+    color: var(--text-light);
 
-    color: var(--muted);
-
-    font-size: 11px;
-
-    margin-top: 3px;
+    font-size: 10px;
 }
 
 
-.header-status {
+.system-status {
+
+    color: var(--text-light);
+
+    font-size: 10px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 7px;
-
-    font-size: 11px;
-
-    color: var(--green);
+    gap: 6px;
 }
 
 
-.header-status span {
+.status-dot {
 
     width: 7px;
+
     height: 7px;
 
     border-radius: 50%;
@@ -162,23 +185,24 @@ button {
 }
 
 
-/* =====================================
+/* =========================================
    CONTAINER
-===================================== */
+========================================= */
 
-main {
+.container {
 
-    max-width: 1050px;
+    width: min(1100px, 100%);
 
     margin: auto;
 
-    padding: 35px 20px 70px;
+    padding:
+        30px 20px 60px;
 }
 
 
-.page-title {
+.page-header {
 
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 
@@ -186,1060 +210,90 @@ main {
 
     color: var(--primary);
 
-    font-size: 10px;
+    font-size: 9px;
 
-    font-weight: 700;
+    font-weight: 800;
 
     letter-spacing: 1.5px;
 }
 
 
-.page-title h2 {
+.page-header h2 {
 
-    font-size: 30px;
+    font-size: 27px;
 
-    margin: 5px 0;
-}
-
-
-.page-title p {
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    max-width: 550px;
-
-    line-height: 1.5;
-}
-
-
-/* =====================================
-   GAIOLAS
-===================================== */
-
-.gaiolas {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 18px;
-}
-
-
-.gaiola {
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 20px;
-
-    cursor: pointer;
-
-    transition:
-        transform .2s,
-        box-shadow .2s,
-        border-color .2s;
-}
-
-
-.gaiola:hover {
-
-    transform: translateY(-3px);
-
-    border-color: #b9cdf9;
-
-    box-shadow:
-        0 10px 30px rgba(30, 64, 175, .08);
-}
-
-
-.gaiola-top {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    margin-bottom: 22px;
-}
-
-
-.gaiola-identificacao {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-}
-
-
-.gaiola-icon {
-
-    width: 48px;
-    height: 48px;
-
-    background: #eff6ff;
-
-    border-radius: 13px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 22px;
-}
-
-
-.gaiola h3 {
-
-    font-size: 18px;
-
-    margin-bottom: 4px;
-}
-
-
-.gaiola-subtitle {
-
-    color: var(--muted);
-
-    font-size: 11px;
-}
-
-
-.status {
-
-    padding: 6px 9px;
-
-    border-radius: 20px;
-
-    font-size: 9px;
-
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-
-.status.reproduzindo {
-
-    color: var(--green);
-
-    background: var(--green-bg);
-}
-
-
-.status.descanso {
-
-    color: var(--orange);
-
-    background: var(--orange-bg);
-}
-
-
-/* =====================================
-   CASAL NO CARD
-===================================== */
-
-.casal-resumo {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-}
-
-
-.ave-resumo {
-
-    background: #f8fafc;
-
-    border-radius: 12px;
-
-    padding: 13px;
-}
-
-
-.ave-sexo {
-
-    color: var(--muted);
-
-    font-size: 9px;
-
-    text-transform: uppercase;
+    margin-top: 4px;
 
     margin-bottom: 5px;
 }
 
 
-.ave-nome {
+.page-header p {
 
-    font-size: 13px;
-
-    font-weight: 700;
-
-    margin-bottom: 4px;
-}
-
-
-.ave-detalhe {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    line-height: 1.5;
-}
-
-
-.clique {
-
-    border-top: 1px solid var(--border);
-
-    margin-top: 18px;
-
-    padding-top: 13px;
-
-    color: var(--primary);
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    display: flex;
-
-    justify-content: space-between;
-}
-
-
-/* =====================================
-   PÁGINA INDIVIDUAL
-===================================== */
-
-.detail-page {
-
-    display: none;
-}
-
-
-.back-button {
-
-    border: none;
-
-    background: transparent;
-
-    padding: 0;
-
-    color: var(--primary);
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    margin-bottom: 20px;
-}
-
-
-/* =====================================
-   CABEÇALHO GAIOLA
-===================================== */
-
-.gaiola-detail-header {
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 22px;
-
-    margin-bottom: 18px;
-}
-
-
-.detail-header-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    gap: 15px;
-}
-
-
-.detail-number {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-}
-
-
-.detail-icon {
-
-    width: 52px;
-    height: 52px;
-
-    background: #eff6ff;
-
-    border-radius: 14px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
-}
-
-
-.detail-number h2 {
-
-    font-size: 25px;
-
-    margin-bottom: 4px;
-}
-
-
-.detail-number p {
-
-    color: var(--muted);
+    color: var(--text-light);
 
     font-size: 12px;
-}
-
-
-/* =====================================
-   SEÇÕES
-===================================== */
-
-.detail-section {
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 22px;
-
-    margin-bottom: 18px;
-}
-
-
-.section-heading {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 18px;
-}
-
-
-.section-heading-icon {
-
-    width: 34px;
-    height: 34px;
-
-    border-radius: 9px;
-
-    background: #eff6ff;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-.section-heading h3 {
-
-    font-size: 16px;
-}
-
-
-/* =====================================
-   CASAL
-===================================== */
-
-.casal-detail {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 15px;
-}
-
-
-.ave-detail {
-
-    border: 1px solid var(--border);
-
-    border-radius: 14px;
-
-    padding: 17px;
-}
-
-
-.ave-detail-title {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 15px;
-}
-
-
-.ave-detail-title h4 {
-
-    font-size: 14px;
-}
-
-
-.sexo-macho {
-
-    color: #2563eb;
-
-    font-size: 11px;
-
-    font-weight: 700;
-}
-
-
-.sexo-femea {
-
-    color: #db2777;
-
-    font-size: 11px;
-
-    font-weight: 700;
-}
-
-
-.info {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 9px 0;
-
-    border-bottom: 1px solid #f1f5f9;
-
-    font-size: 11px;
-}
-
-
-.info:last-child {
-
-    border-bottom: none;
-}
-
-
-.info span:first-child {
-
-    color: var(--muted);
-}
-
-
-.info span:last-child {
-
-    font-weight: 600;
-
-    text-align: right;
-}
-
-
-/* =====================================
-   STATUS ATUAL
-===================================== */
-
-.status-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 10px;
-
-    margin-bottom: 20px;
-}
-
-
-.status-box {
-
-    background: #f8fafc;
-
-    border-radius: 13px;
-
-    padding: 16px;
-
-    text-align: center;
-}
-
-
-.status-box strong {
-
-    display: block;
-
-    font-size: 20px;
-
-    margin-bottom: 5px;
-}
-
-
-.status-box span {
-
-    color: var(--muted);
-
-    font-size: 9px;
-}
-
-
-.timeline {
-
-    border-left: 2px solid #dbeafe;
-
-    padding-left: 20px;
-
-    margin-left: 7px;
-}
-
-
-.timeline-item {
-
-    position: relative;
-
-    margin-bottom: 22px;
-}
-
-
-.timeline-item:last-child {
-
-    margin-bottom: 0;
-}
-
-
-.timeline-item::before {
-
-    content: "";
-
-    width: 10px;
-    height: 10px;
-
-    background: var(--primary);
-
-    border-radius: 50%;
-
-    position: absolute;
-
-    left: -26px;
-
-    top: 3px;
-}
-
-
-.timeline-date {
-
-    color: var(--primary);
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    margin-bottom: 4px;
-}
-
-
-.timeline-title {
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    margin-bottom: 3px;
-}
-
-
-.timeline-description {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-
-/* =====================================
-   FILHOTES
-===================================== */
-
-.filhotes {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 9px;
-}
-
-
-.filhote {
-
-    display: grid;
-
-    grid-template-columns: 40px 1fr auto;
-
-    align-items: center;
-
-    gap: 11px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 12px;
-
-    padding: 11px;
-}
-
-
-.filhote-icon {
-
-    width: 38px;
-    height: 38px;
-
-    border-radius: 50%;
-
-    background: #eff6ff;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-.filhote-nome {
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-.filhote-info {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    margin-top: 3px;
-}
-
-
-.filhote-sexo {
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    background: #f1f5f9;
-
-    border-radius: 20px;
-
-    padding: 5px 8px;
-}
-
-
-/* =====================================
-   HISTÓRICO
-===================================== */
-
-.historico {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-
-.reproducao-anterior {
-
-    border: 1px solid var(--border);
-
-    border-radius: 14px;
-
-    padding: 17px;
-}
-
-
-.reproducao-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    gap: 15px;
-
-    margin-bottom: 15px;
-}
-
-
-.reproducao-top h4 {
-
-    font-size: 13px;
-
-    margin-bottom: 4px;
-}
-
-
-.reproducao-data {
-
-    color: var(--muted);
-
-    font-size: 10px;
-}
-
-
-.resultado {
-
-    padding: 6px 9px;
-
-    border-radius: 20px;
-
-    font-size: 9px;
-
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-
-.resultado.excelente {
-
-    color: var(--green);
-
-    background: var(--green-bg);
-}
-
-
-.resultado.regular {
-
-    color: var(--orange);
-
-    background: var(--orange-bg);
-}
-
-
-.resultado.baixo {
-
-    color: var(--red);
-
-    background: var(--red-bg);
-}
-
-
-.reproducao-numeros {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 8px;
-
-    margin-bottom: 13px;
-}
-
-
-.numero {
-
-    background: #f8fafc;
-
-    padding: 10px;
-
-    border-radius: 9px;
-
-    text-align: center;
-}
-
-
-.numero strong {
-
-    display: block;
-
-    font-size: 15px;
-
-    margin-bottom: 3px;
-}
-
-
-.numero span {
-
-    color: var(--muted);
-
-    font-size: 8px;
-}
-
-
-.reproducao-casal {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    padding: 10px 0;
-
-    border-top: 1px solid var(--border);
-
-    border-bottom: 1px solid var(--border);
-
-}
-
-
-.reproducao-observacao {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-    margin-top: 11px;
-}
-
-
-/* =====================================
-   RESPONSIVIDADE
-===================================== */
-
-@media (min-width: 850px) {
-
-    .gaiolas {
-
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
-
-
-    .gaiola:first-child {
-
-        grid-column: span 2;
-    }
-
-}
-
-
-@media (max-width: 700px) {
-
-    main {
-
-        padding: 25px 14px 50px;
-    }
-
-
-    .gaiolas {
-
-        grid-template-columns: 1fr;
-    }
-
-
-    .casal-detail {
-
-        grid-template-columns: 1fr;
-    }
-
-
-    .status-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .reproducao-numeros {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 480px) {
-
-    .header-content {
-
-        padding: 13px 15px;
-    }
-
-
-    .header-status {
-
-        display: none;
-    }
-
-
-    .brand-icon {
-
-        width: 40px;
-        height: 40px;
-
-        font-size: 19px;
-    }
-
-
-    .page-title h2 {
-
-        font-size: 25px;
-    }
-
-
-    .page-title p {
-
-        font-size: 12px;
-    }
-
-
-    .gaiola {
-
-        padding: 16px;
-    }
-
-
-    .gaiola-top {
-
-        margin-bottom: 17px;
-    }
-
-
-    .gaiola-icon {
-
-        width: 43px;
-        height: 43px;
-    }
-
-
-    .gaiola h3 {
-
-        font-size: 16px;
-    }
-
-
-    .detail-section {
-
-        padding: 16px;
-    }
-
-
-    .detail-number h2 {
-
-        font-size: 21px;
-    }
-
-
-    .detail-icon {
-
-        width: 45px;
-        height: 45px;
-
-        font-size: 21px;
-    }
-
-
-    .detail-header-top {
-
-        align-items: center;
-    }
-
-
-    .reproducao-top {
-
-        flex-direction: column;
-    }
-
-
-
-
-    
 }
 
 
 /* =========================================
-   ABAS PRINCIPAIS
+   TABS
 ========================================= */
 
 .main-tabs {
 
     display: flex;
 
-    gap: 8px;
+    width: 100%;
 
-    background: #ffffff;
+    max-width: 420px;
 
-    border: 1px solid var(--border);
-
-    border-radius: 13px;
+    gap: 5px;
 
     padding: 5px;
 
-    margin-bottom: 25px;
+    background: var(--white);
 
-    width: fit-content;
+    border:
+        1px solid var(--border);
+
+    border-radius: 13px;
+
+    margin-bottom: 25px;
 }
 
 
 .main-tab {
 
+    flex: 1;
+
     border: none;
 
     background: transparent;
 
-    color: var(--muted);
-
-    padding: 10px 18px;
+    color: var(--text-light);
 
     border-radius: 9px;
 
-    font-size: 12px;
+    padding: 10px;
+
+    font-size: 11px;
 
     font-weight: 700;
-
-    cursor: pointer;
 
     transition: .2s;
 }
 
 
+.main-tab span {
+
+    margin-right: 5px;
+}
+
+
 .main-tab:hover {
 
-    background: #f1f5f9;
+    background: #f8fafc;
 }
 
 
@@ -1252,135 +306,125 @@ main {
 
 
 /* =========================================
-   TÍTULO DA VISÃO
+   SECTION HEADER
 ========================================= */
 
-.view-title {
+.section-header {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: space-between;
 
-    margin-bottom: 18px;
+    align-items: center;
 
     gap: 15px;
+
+    margin-bottom: 15px;
 }
 
 
-.view-title h3 {
+.section-header h3 {
 
-    font-size: 18px;
+    font-size: 17px;
 
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 
-.view-title p {
+.section-header p {
 
-    color: var(--muted);
+    color: var(--text-light);
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 
-.view-count {
-
-    background: #eff6ff;
+.count-badge {
 
     color: var(--primary);
 
+    background: var(--blue-bg);
+
+    padding:
+        6px 10px;
+
     border-radius: 20px;
 
-    padding: 7px 11px;
+    font-size: 9px;
 
-    font-size: 10px;
-
-    font-weight: 700;
+    font-weight: 800;
 
     white-space: nowrap;
 }
 
 
 /* =========================================
-   LISTA DE AVES
+   GAIOLAS
 ========================================= */
 
-.aves-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 15px;
-}
-
-
-.ave-card {
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 17px;
-
-    padding: 18px;
-
-    cursor: pointer;
-
-    transition:
-        transform .2s,
-        box-shadow .2s,
-        border-color .2s;
-}
-
-
-.ave-card:hover {
-
-    transform: translateY(-3px);
-
-    border-color: #b9cdf9;
-
-    box-shadow:
-        0 10px 30px rgba(30, 64, 175, .08);
-}
-
-
-.ave-card-top {
+.gaiolas-list {
 
     display: flex;
 
-    align-items: flex-start;
-
-    justify-content: space-between;
+    flex-direction: column;
 
     gap: 10px;
-
-    margin-bottom: 17px;
 }
 
 
-.ave-card-identificacao {
+.gaiola-card {
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    transition:
+        border .2s,
+        box-shadow .2s;
+}
+
+
+.gaiola-card:hover {
+
+    border-color: #a9c4f8;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, .06);
+}
+
+
+.gaiola-main {
+
+    padding: 16px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 11px;
+    gap: 13px;
+
+    cursor: pointer;
 }
 
 
-.ave-avatar {
+.gaiola-number {
 
     width: 47px;
 
     height: 47px;
 
+    flex-shrink: 0;
+
     border-radius: 13px;
 
-    background: #eff6ff;
+    background: var(--blue-bg);
+
+    color: var(--primary);
 
     display: flex;
 
@@ -1388,41 +432,66 @@ main {
 
     justify-content: center;
 
-    font-size: 22px;
+    font-size: 14px;
+
+    font-weight: 800;
 }
 
 
-.ave-card h3 {
+.gaiola-main-info {
 
-    font-size: 15px;
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.gaiola-main-info h3 {
+
+    font-size: 14px;
 
     margin-bottom: 4px;
 }
 
 
-.ave-card-subtitle {
+.gaiola-casal {
 
-    color: var(--muted);
+    color: var(--text-light);
 
     font-size: 10px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
 }
 
 
-.ave-status {
+.gaiola-arrow {
 
-    padding: 5px 8px;
+    color: var(--text-light);
+
+    font-size: 18px;
+}
+
+
+.status-badge {
+
+    padding:
+        5px 8px;
 
     border-radius: 20px;
 
     font-size: 8px;
 
-    font-weight: 700;
+    font-weight: 800;
 
     white-space: nowrap;
 }
 
 
-.ave-status.reproduzindo {
+.status-badge.reproduzindo {
 
     color: var(--green);
 
@@ -1430,7 +499,7 @@ main {
 }
 
 
-.ave-status.descanso {
+.status-badge.descanso {
 
     color: var(--orange);
 
@@ -1438,116 +507,133 @@ main {
 }
 
 
-.ave-card-info {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 8px;
-}
-
-
-.ave-info-box {
-
-    background: #f8fafc;
-
-    border-radius: 10px;
-
-    padding: 10px;
-}
-
-
-.ave-info-label {
-
-    color: var(--muted);
-
-    font-size: 8px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 4px;
-}
-
-
-.ave-info-value {
-
-    font-size: 11px;
-
-    font-weight: 700;
-}
-
-
-.ave-card-footer {
-
-    border-top: 1px solid var(--border);
-
-    margin-top: 15px;
-
-    padding-top: 12px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: var(--primary);
-
-    font-size: 10px;
-
-    font-weight: 700;
-}
-
-
 /* =========================================
-   PÁGINA INDIVIDUAL DA AVE
+   BUSCA
 ========================================= */
 
-.ave-detail-header {
+.search-box {
 
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 22px;
-
-    margin-bottom: 18px;
-}
-
-
-.ave-detail-header-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    gap: 15px;
-}
-
-
-.ave-detail-identificacao {
+    height: 48px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 14px;
+    gap: 10px;
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding:
+        0 14px;
+
+    margin-bottom: 15px;
 }
 
 
-.ave-detail-avatar {
+.search-icon {
 
-    width: 58px;
+    font-size: 16px;
 
-    height: 58px;
+    color: var(--text-light);
+}
 
-    background: #eff6ff;
 
-    border-radius: 16px;
+.search-box input {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 12px;
+}
+
+
+.search-box input::placeholder {
+
+    color: #94a3b8;
+}
+
+
+/* =========================================
+   AVES
+========================================= */
+
+.aves-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.ave-card {
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 13px;
+
+    overflow: hidden;
+
+    transition: .2s;
+}
+
+
+.ave-card.expanded {
+
+    border-color: #93b4f4;
+
+    box-shadow:
+        0 8px 25px rgba(37, 99, 235, .08);
+}
+
+
+.ave-card-main {
+
+    min-height: 72px;
+
+    padding: 13px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+}
+
+
+.ave-avatar {
+
+    width: 43px;
+
+    height: 43px;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: var(--blue-bg);
+
+    color: var(--primary);
 
     display: flex;
 
@@ -1555,102 +641,482 @@ main {
 
     justify-content: center;
 
-    font-size: 27px;
+    font-size: 21px;
+
+    font-weight: 700;
 }
 
 
-.ave-detail-identificacao h2 {
+.ave-card-info {
 
-    font-size: 24px;
+    flex: 1;
 
-    margin-bottom: 4px;
+    min-width: 0;
 }
 
 
-.ave-detail-identificacao p {
+.ave-card-info h3 {
 
-    color: var(--muted);
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+
+.ave-card-subtitle {
+
+    color: var(--text-light);
+
+    font-size: 9px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.ave-card-arrow {
+
+    color: var(--text-light);
 
     font-size: 11px;
+
+    transition: .2s;
+}
+
+
+.ave-card.expanded
+.ave-card-arrow {
+
+    transform:
+        rotate(180deg);
+
+    color: var(--primary);
 }
 
 
 /* =========================================
-   DADOS DA AVE
+   DETALHES DA AVE
 ========================================= */
 
-.ave-data-grid {
+.ave-expanded {
+
+    display: none;
+
+    background: #f8fafc;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.ave-card.expanded
+.ave-expanded {
+
+    display: block;
+}
+
+
+.ave-expanded-content {
+
+    padding: 16px;
+}
+
+
+.ave-detail-grid {
 
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 10px;
+    gap: 8px;
 
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
-.ave-data {
+.ave-detail-item {
 
-    background: #f8fafc;
+    background: var(--white);
 
-    border-radius: 11px;
+    border:
+        1px solid var(--border);
 
-    padding: 12px;
+    border-radius: 9px;
+
+    padding: 10px;
 }
 
 
-.ave-data span {
+.ave-detail-item span {
 
     display: block;
 
-    color: var(--muted);
+    color: var(--text-light);
 
-    font-size: 8px;
+    font-size: 7px;
 
     text-transform: uppercase;
 
     margin-bottom: 5px;
+
+    font-weight: 700;
 }
 
 
-.ave-data strong {
+.ave-detail-item strong {
 
-    font-size: 11px;
+    font-size: 10px;
+
+    word-break: break-word;
 }
 
 
 /* =========================================
-   GAIOLA / PARCEIRO
+   FAMÍLIA
 ========================================= */
 
-.ave-context {
+.family-section {
+
+    margin-top: 17px;
+}
+
+
+.family-title {
+
+    color: #334155;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+
+.family-grid {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+
+.family-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.parente-link {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    border:
+        1px solid var(--border);
+
+    background: var(--white);
+
+    border-radius: 10px;
+
+    padding: 9px 10px;
+
+    text-align: left;
+
+    transition: .2s;
+}
+
+
+.parente-link:hover {
+
+    border-color: #93b4f4;
+
+    background: #f8fbff;
+}
+
+
+.parente-avatar {
+
+    width: 31px;
+
+    height: 31px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: var(--blue-bg);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+.parente-info {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    min-width: 0;
+}
+
+
+.parente-info strong {
+
+    font-size: 10px;
+
+    color: var(--text);
+}
+
+
+.parente-info span {
+
+    font-size: 8px;
+
+    color: var(--text-light);
+}
+
+
+.parente-arrow {
+
+    color: var(--primary);
+
+    font-size: 13px;
+}
+
+
+.no-family {
+
+    padding: 12px;
+
+    background: var(--white);
+
+    border:
+        1px dashed var(--border);
+
+    border-radius: 9px;
+
+    text-align: center;
+
+    color: var(--text-light);
+
+    font-size: 9px;
+}
+
+
+/* =========================================
+   PÁGINA DA GAIOLA
+========================================= */
+
+.back-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    padding: 0;
+
+    margin-bottom: 18px;
+}
+
+
+.detail-header {
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+}
+
+
+.detail-header-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.detail-title {
+
+    display: flex;
+
+    align-items: center;
 
     gap: 12px;
 }
 
 
-.context-box {
+.detail-number {
 
-    border: 1px solid var(--border);
+    width: 52px;
 
-    border-radius: 13px;
+    height: 52px;
 
-    padding: 15px;
+    border-radius: 14px;
+
+    background: var(--blue-bg);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 800;
 }
 
 
-.context-label {
+.detail-title h2 {
 
-    color: var(--muted);
+    font-size: 22px;
 
-    font-size: 9px;
+    margin-bottom: 4px;
+}
+
+
+.detail-title p {
+
+    color: var(--text-light);
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   SEÇÕES
+========================================= */
+
+.detail-section {
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin-bottom: 14px;
+}
+
+
+.detail-section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.detail-section-title-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 8px;
+
+    background: var(--blue-bg);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.detail-section-title h3 {
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CASAL
+========================================= */
+
+.casal-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.casal-card {
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    padding: 13px;
+}
+
+
+.casal-card-label {
+
+    color: var(--text-light);
+
+    font-size: 8px;
 
     text-transform: uppercase;
 
@@ -1658,141 +1124,458 @@ main {
 }
 
 
-.context-value {
-
-    font-size: 14px;
-
-    font-weight: 700;
-}
-
-
-.context-detail {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    margin-top: 4px;
-}
-
-
-/* =========================================
-   HISTÓRICO DA AVE
-========================================= */
-
-.ave-historico {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-
-.ave-historico-item {
-
-    border: 1px solid var(--border);
-
-    border-radius: 14px;
-
-    padding: 16px;
-}
-
-
-.ave-historico-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    gap: 12px;
-
-    margin-bottom: 13px;
-}
-
-
-.ave-historico-top h4 {
+.casal-card-name {
 
     font-size: 13px;
 
-    margin-bottom: 4px;
-}
-
-
-.ave-historico-date {
-
-    color: var(--muted);
-
-    font-size: 10px;
-}
-
-
-.ave-historico-numbers {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 8px;
-
-    margin-bottom: 12px;
-}
-
-
-.ave-history-number {
-
-    background: #f8fafc;
-
-    border-radius: 9px;
-
-    padding: 10px;
-
-    text-align: center;
-}
-
-
-.ave-history-number strong {
-
-    display: block;
-
-    font-size: 15px;
+    font-weight: 800;
 
     margin-bottom: 3px;
 }
 
 
-.ave-history-number span {
+.casal-card-info {
 
-    color: var(--muted);
+    color: var(--text-light);
+
+    font-size: 9px;
+}
+
+
+/* =========================================
+   STATUS DA REPRODUÇÃO
+========================================= */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 9px;
+}
+
+
+.stat-card {
+
+    background: #f8fafc;
+
+    border-radius: 10px;
+
+    padding: 13px;
+
+    text-align: center;
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    font-size: 19px;
+
+    margin-bottom: 3px;
+}
+
+
+.stat-card span {
+
+    color: var(--text-light);
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   EVENTOS
+========================================= */
+
+.timeline {
+
+    margin-top: 17px;
+
+    border-left:
+        2px solid #dbeafe;
+
+    padding-left: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+.timeline-item {
+
+    position: relative;
+}
+
+
+.timeline-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    background: var(--primary);
+
+    border-radius: 50%;
+
+    left: -21px;
+
+    top: 3px;
+}
+
+
+.timeline-date {
+
+    color: var(--primary);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    margin-bottom: 3px;
+}
+
+
+.timeline-title {
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    margin-bottom: 3px;
+}
+
+
+.timeline-description {
+
+    color: var(--text-light);
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FILHOTES
+========================================= */
+
+.filhotes-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.filhote {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+
+.filhote-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 8px;
+
+    background: #fff7ed;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.filhote-info {
+
+    flex: 1;
+}
+
+
+.filhote-name {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    margin-bottom: 2px;
+}
+
+
+.filhote-details {
+
+    color: var(--text-light);
 
     font-size: 8px;
 }
 
 
+.filhote-sex {
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color: var(--primary);
+}
+
+
 /* =========================================
-   RESPONSIVIDADE AVES
+   HISTÓRICO
+========================================= */
+
+.history-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.history-card {
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    padding: 13px;
+}
+
+
+.history-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+
+.history-title {
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    margin-bottom: 3px;
+}
+
+
+.history-date {
+
+    color: var(--text-light);
+
+    font-size: 8px;
+}
+
+
+.result-badge {
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+.result-badge.excelente {
+
+    background: var(--green-bg);
+
+    color: var(--green);
+}
+
+
+.result-badge.regular {
+
+    background: var(--orange-bg);
+
+    color: var(--orange);
+}
+
+
+.result-badge.baixo {
+
+    background: var(--red-bg);
+
+    color: var(--red);
+}
+
+
+.history-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 7px;
+
+    margin-bottom: 10px;
+}
+
+
+.history-stat {
+
+    background: #f8fafc;
+
+    border-radius: 8px;
+
+    padding: 8px;
+
+    text-align: center;
+}
+
+
+.history-stat strong {
+
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 2px;
+}
+
+
+.history-stat span {
+
+    color: var(--text-light);
+
+    font-size: 7px;
+
+    text-transform: uppercase;
+}
+
+
+.history-observation {
+
+    color: var(--text-light);
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   UTILITÁRIOS
+========================================= */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+.empty-state {
+
+    background: var(--white);
+
+    border:
+        1px dashed var(--border);
+
+    border-radius: 13px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    color: var(--text-light);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
 ========================================= */
 
 @media (max-width: 700px) {
 
-    .aves-grid {
+    .container {
 
-        grid-template-columns: 1fr;
+        padding:
+            22px 14px 50px;
     }
 
 
-    .ave-data-grid {
+    .header-content {
+
+        padding:
+            9px 14px;
+    }
+
+
+    .page-header h2 {
+
+        font-size: 23px;
+    }
+
+
+    .ave-detail-grid {
 
         grid-template-columns:
             repeat(2, 1fr);
     }
 
 
-    .ave-context {
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .history-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .family-grid {
 
         grid-template-columns: 1fr;
     }
@@ -1802,51 +1585,65 @@ main {
 
 @media (max-width: 480px) {
 
-    .main-tabs {
+    .system-status {
 
-        width: 100%;
+        display: none;
     }
 
 
-    .main-tab {
-
-        flex: 1;
-
-        padding: 10px 8px;
-    }
-
-
-    .view-title {
+    .section-header {
 
         align-items: flex-start;
     }
 
 
-    .ave-card {
+    .gaiola-main {
+
+        padding: 13px;
+    }
+
+
+    .gaiola-number {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+
+    .status-badge {
+
+        display: none;
+    }
+
+
+    .detail-header {
 
         padding: 15px;
     }
 
 
-    .ave-detail-header {
+    .detail-title h2 {
 
-        padding: 16px;
+        font-size: 19px;
     }
 
 
-    .ave-detail-identificacao h2 {
+    .detail-section {
 
-        font-size: 20px;
+        padding: 14px;
     }
 
 
-    .ave-detail-avatar {
+    .casal-grid {
 
-        width: 48px;
+        grid-template-columns: 1fr;
+    }
 
-        height: 48px;
 
-        font-size: 22px;
+    .detail-header-top {
+
+        align-items: center;
     }
 
 }

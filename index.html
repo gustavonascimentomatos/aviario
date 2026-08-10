@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Controle de Reprodução</title>
+    <title>Aviário | Controle de Reprodução</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
     <header class="header">
 
@@ -24,16 +26,24 @@
                     🐦
                 </div>
 
-                <div>
+                <div class="brand-text">
+
                     <h1>Aviário</h1>
-                    <span>Controle de Reprodução</span>
+
+                    <span>
+                        Controle de Reprodução
+                    </span>
+
                 </div>
 
             </div>
 
-            <div class="header-status">
-                <span></span>
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
                 Sistema ativo
+
             </div>
 
         </div>
@@ -41,127 +51,166 @@
     </header>
 
 
-    <main>
+    <!-- =========================================
+         CONTEÚDO
+    ========================================== -->
 
-        <!-- =========================================
-             PÁGINA PRINCIPAL
-        ========================================== -->
+    <main class="container">
 
-        <section id="homePage" class="page">
 
-            <div class="page-title">
+        <!-- =====================================
+             HOME
+        ====================================== -->
 
-                <span class="eyebrow">
-                    PLANTEL
-                </span>
+        <section
+            id="homePage"
+            class="page"
+        >
 
-                <h2>
-                    Controle do Aviário
-                </h2>
+            <div class="page-header">
 
-                <p>
-                    Gerencie suas gaiolas e acompanhe
-                    individualmente cada ave.
-                </p>
+                <div>
+
+                    <span class="eyebrow">
+                        PLANTEL
+                    </span>
+
+                    <h2>
+                        Controle do Aviário
+                    </h2>
+
+                    <p>
+                        Acompanhe suas gaiolas e aves
+                        de forma simples e organizada.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- NAVEGAÇÃO -->
+            <!-- ABAS -->
 
             <div class="main-tabs">
 
                 <button
                     id="tabGaiolas"
                     class="main-tab active"
+                    type="button"
                     onclick="mostrarGaiolas()"
                 >
-                    🏠 Gaiolas
+                    <span>🏠</span>
+                    Gaiolas
                 </button>
+
 
                 <button
                     id="tabAves"
                     class="main-tab"
+                    type="button"
                     onclick="mostrarAves()"
                 >
-                    🐦 Aves
+                    <span>🐦</span>
+                    Aves
                 </button>
 
             </div>
 
 
-            <!-- =====================================
+            <!-- =================================
                  GAIOLAS
-            ====================================== -->
+            ================================== -->
 
             <div id="gaiolasView">
 
-                <div class="view-title">
+                <div class="section-header">
 
                     <div>
 
                         <h3>
-                            Minhas Gaiolas
+                            Minhas gaiolas
                         </h3>
 
                         <p>
-                            Selecione uma gaiola para
-                            acompanhar sua reprodução.
+                            Toque em uma gaiola para
+                            acompanhar a reprodução.
                         </p>
 
                     </div>
 
-                    <div class="view-count">
-                        5 gaiolas
-                    </div>
+                    <span
+                        id="gaiolasCount"
+                        class="count-badge"
+                    >
+                    </span>
 
                 </div>
 
 
                 <div
-                    class="gaiolas"
                     id="gaiolasContainer"
+                    class="gaiolas-list"
                 ></div>
 
             </div>
 
 
-            <!-- =====================================
+            <!-- =================================
                  AVES
-            ====================================== -->
+            ================================== -->
 
             <div
                 id="avesView"
-                style="display: none;"
+                class="hidden"
             >
 
-                <div class="view-title">
+                <div class="section-header">
 
                     <div>
 
                         <h3>
-                            Minhas Aves
+                            Minhas aves
                         </h3>
 
                         <p>
-                            Selecione uma ave para
-                            acompanhar seu histórico.
+                            Pesquise e consulte a
+                            ficha de cada ave.
                         </p>
 
                     </div>
 
-                    <div
-                        class="view-count"
+                    <span
                         id="avesCount"
+                        class="count-badge"
                     >
-                    </div>
+                    </span>
 
                 </div>
 
 
+                <!-- BUSCA -->
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔎
+                    </span>
+
+                    <input
+                        id="buscarAnilha"
+                        type="search"
+                        placeholder="Pesquisar por anilha..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- LISTA -->
+
                 <div
-                    class="aves-grid"
                     id="avesContainer"
+                    class="aves-list"
                 ></div>
 
             </div>
@@ -170,45 +219,29 @@
 
 
         <!-- =========================================
-             PÁGINA INDIVIDUAL DA GAIOLA
+             DETALHE GAIOLA
         ========================================== -->
 
         <section
             id="gaiolaPage"
-            class="page detail-page"
+            class="page hidden"
         >
 
             <button
                 class="back-button"
-                onclick="voltar()"
+                type="button"
+                onclick="voltarHome()"
             >
                 ← Voltar
             </button>
 
-            <div id="gaiolaContent"></div>
+
+            <div
+                id="gaiolaContent"
+            ></div>
 
         </section>
 
-
-        <!-- =========================================
-             PÁGINA INDIVIDUAL DA AVE
-        ========================================== -->
-
-        <section
-            id="avePage"
-            class="page detail-page"
-        >
-
-            <button
-                class="back-button"
-                onclick="voltarAves()"
-            >
-                ← Voltar para aves
-            </button>
-
-            <div id="aveContent"></div>
-
-        </section>
 
     </main>
 
