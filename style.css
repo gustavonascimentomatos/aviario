@@ -1,3 +1,4 @@
+```css
 /* =====================================================
    RESET
 ===================================================== */
@@ -142,13 +143,13 @@ button {
 
     justify-content: center;
 
-    font-size: 21px;
+    font-size: 23px;
 }
 
 
 .brand h1 {
 
-    font-size: 16px;
+    font-size: 18px;
 
     line-height: 1.1;
 }
@@ -160,7 +161,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 9px;
+    font-size: 11px;
 
     margin-top: 2px;
 }
@@ -176,7 +177,7 @@ button {
 
     color: var(--green);
 
-    font-size: 9px;
+    font-size: 11px;
 
     font-weight: 700;
 }
@@ -226,7 +227,7 @@ button {
 
     border-radius: 9px;
 
-    font-size: 11px;
+    font-size: 13px;
 
     font-weight: 700;
 
@@ -294,7 +295,7 @@ button {
 
 .page-overline {
 
-    font-size: 8px;
+    font-size: 10px;
 
     font-weight: 800;
 
@@ -306,7 +307,7 @@ button {
 
 .page-header h2 {
 
-    font-size: 23px;
+    font-size: 25px;
 
     margin-top: 2px;
 }
@@ -314,7 +315,7 @@ button {
 
 .page-header p {
 
-    font-size: 10px;
+    font-size: 12px;
 
     color: var(--text-light);
 
@@ -344,7 +345,7 @@ button {
 
     color: var(--primary);
 
-    font-size: 17px;
+    font-size: 19px;
 
     line-height: 1;
 }
@@ -354,7 +355,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 7px;
+    font-size: 9px;
 }
 
 
@@ -433,7 +434,7 @@ button {
 
     justify-content: center;
 
-    font-size: 15px;
+    font-size: 17px;
 
     font-weight: 800;
 }
@@ -449,7 +450,7 @@ button {
 
 .gaiola-info h3 {
 
-    font-size: 13px;
+    font-size: 15px;
 
     margin-bottom: 2px;
 }
@@ -457,7 +458,7 @@ button {
 
 .gaiola-casal {
 
-    font-size: 9px;
+    font-size: 11px;
 
     color: var(--text-light);
 
@@ -495,7 +496,7 @@ button {
 
     border-radius: 20px;
 
-    font-size: 7px;
+    font-size: 9px;
 
     font-weight: 800;
 
@@ -537,7 +538,7 @@ button {
 
     border: 1px solid var(--yellow-border);
 
-    font-size: 7px;
+    font-size: 9px;
 
     font-weight: 800;
 
@@ -549,7 +550,7 @@ button {
 
     color: var(--text-muted);
 
-    font-size: 16px;
+    font-size: 18px;
 
     margin-left: 1px;
 }
@@ -567,7 +568,7 @@ button {
 
     color: var(--primary);
 
-    font-size: 10px;
+    font-size: 12px;
 
     font-weight: 700;
 
@@ -637,7 +638,7 @@ button {
 
     justify-content: center;
 
-    font-size: 15px;
+    font-size: 17px;
 
     font-weight: 800;
 }
@@ -645,7 +646,7 @@ button {
 
 .detail-title h2 {
 
-    font-size: 20px;
+    font-size: 22px;
 }
 
 
@@ -653,7 +654,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 9px;
+    font-size: 11px;
 
     margin-top: 2px;
 }
@@ -693,7 +694,7 @@ button {
 
 .section-title {
 
-    font-size: 12px;
+    font-size: 14px;
 
     font-weight: 800;
 
@@ -725,7 +726,7 @@ button {
 
     justify-content: center;
 
-    font-size: 12px;
+    font-size: 14px;
 }
 
 
@@ -767,7 +768,7 @@ button {
 
 .ave-card-label {
 
-    font-size: 7px;
+    font-size: 9px;
 
     text-transform: uppercase;
 
@@ -783,7 +784,7 @@ button {
 
 .ave-card-name {
 
-    font-size: 12px;
+    font-size: 14px;
 
     font-weight: 800;
 
@@ -795,7 +796,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 8px;
+    font-size: 10px;
 
     margin-top: 4px;
 }
@@ -805,7 +806,7 @@ button {
 
     color: var(--primary);
 
-    font-size: 7px;
+    font-size: 9px;
 
     margin-top: 8px;
 
@@ -848,7 +849,7 @@ button {
 
     display: block;
 
-    font-size: 18px;
+    font-size: 20px;
 
     color: var(--primary);
 
@@ -860,7 +861,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 7px;
+    font-size: 9px;
 
     display: block;
 
@@ -908,7 +909,7 @@ button {
 
     justify-content: center;
 
-    font-size: 17px;
+    font-size: 19px;
 }
 
 
@@ -918,7 +919,7 @@ button {
 
     color: var(--yellow);
 
-    font-size: 10px;
+    font-size: 12px;
 }
 
 
@@ -928,7 +929,7 @@ button {
 
     color: #a16207;
 
-    font-size: 8px;
+    font-size: 10px;
 
     margin-top: 2px;
 }
@@ -1007,7 +1008,7 @@ button {
 
     color: var(--primary);
 
-    font-size: 8px;
+    font-size: 10px;
 
     font-weight: 800;
 
@@ -1017,7 +1018,7 @@ button {
 
 .timeline-title {
 
-    font-size: 9px;
+    font-size: 11px;
 
     font-weight: 800;
 }
@@ -1027,7 +1028,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 8px;
+    font-size: 10px;
 
     margin-top: 2px;
 }
@@ -1085,7 +1086,7 @@ button {
 
     justify-content: center;
 
-    font-size: 13px;
+    font-size: 15px;
 
     font-weight: 800;
 
@@ -1105,7 +1106,7 @@ button {
 
     display: block;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 
@@ -1115,7 +1116,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 7px;
+    font-size: 9px;
 
     margin-top: 2px;
 }
@@ -1125,7 +1126,7 @@ button {
 
     color: var(--text-muted);
 
-    font-size: 12px;
+    font-size: 14px;
 }
 
 
@@ -1171,7 +1172,7 @@ button {
 
 .history-title {
 
-    font-size: 11px;
+    font-size: 13px;
 
     font-weight: 800;
 }
@@ -1181,7 +1182,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 7px;
+    font-size: 9px;
 
     margin-top: 2px;
 }
@@ -1193,7 +1194,7 @@ button {
 
     border-radius: 20px;
 
-    font-size: 6px;
+    font-size: 8px;
 
     font-weight: 800;
 
@@ -1239,7 +1240,7 @@ button {
 
     color: #334155;
 
-    font-size: 9px;
+    font-size: 11px;
 
     font-weight: 800;
 
@@ -1308,7 +1309,7 @@ button {
 
     justify-content: center;
 
-    font-size: 13px;
+    font-size: 15px;
 
     font-weight: 800;
 }
@@ -1328,7 +1329,7 @@ button {
 
 .history-filhote-info strong {
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 
@@ -1336,7 +1337,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 7px;
+    font-size: 9px;
 
     white-space: nowrap;
 
@@ -1383,7 +1384,7 @@ button {
 
     color: var(--text);
 
-    font-size: 12px;
+    font-size: 14px;
 }
 
 
@@ -1393,7 +1394,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 6px;
+    font-size: 8px;
 
     margin-top: 2px;
 }
@@ -1403,7 +1404,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 8px;
+    font-size: 10px;
 
     line-height: 1.5;
 
@@ -1443,7 +1444,7 @@ button {
 
 .search-icon {
 
-    font-size: 14px;
+    font-size: 16px;
 }
 
 
@@ -1457,7 +1458,7 @@ button {
 
     min-width: 0;
 
-    font-size: 10px;
+    font-size: 12px;
 
     color: var(--text);
 }
@@ -1531,7 +1532,7 @@ button {
 
     justify-content: center;
 
-    font-size: 17px;
+    font-size: 19px;
 
     font-weight: 800;
 
@@ -1549,7 +1550,7 @@ button {
 
 .ave-list-info h3 {
 
-    font-size: 11px;
+    font-size: 13px;
 
     margin-bottom: 3px;
 }
@@ -1559,7 +1560,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 8px;
+    font-size: 10px;
 }
 
 
@@ -1567,7 +1568,7 @@ button {
 
     color: var(--text-muted);
 
-    font-size: 14px;
+    font-size: 16px;
 }
 
 
@@ -1619,7 +1620,7 @@ button {
 
     justify-content: center;
 
-    font-size: 23px;
+    font-size: 25px;
 
     font-weight: 800;
 
@@ -1629,7 +1630,7 @@ button {
 
 .bird-header h2 {
 
-    font-size: 19px;
+    font-size: 21px;
 }
 
 
@@ -1637,7 +1638,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 9px;
+    font-size: 11px;
 
     margin-top: 3px;
 }
@@ -1672,7 +1673,7 @@ button {
 
     color: var(--text-muted);
 
-    font-size: 7px;
+    font-size: 9px;
 
     text-transform: uppercase;
 
@@ -1686,7 +1687,7 @@ button {
 
     display: block;
 
-    font-size: 9px;
+    font-size: 11px;
 
     font-weight: 700;
 }
@@ -1746,7 +1747,7 @@ button {
 
     justify-content: center;
 
-    font-size: 12px;
+    font-size: 14px;
 
     font-weight: 800;
 
@@ -1764,7 +1765,7 @@ button {
 
     display: block;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 
@@ -1774,7 +1775,7 @@ button {
 
     color: var(--text-light);
 
-    font-size: 7px;
+    font-size: 9px;
 
     margin-top: 2px;
 }
@@ -1784,7 +1785,7 @@ button {
 
     color: var(--primary);
 
-    font-size: 7px;
+    font-size: 9px;
 
     font-weight: 700;
 }
@@ -1802,7 +1803,7 @@ button {
 
     text-align: center;
 
-    font-size: 8px;
+    font-size: 10px;
 }
 
 
@@ -1818,7 +1819,7 @@ button {
 
     color: var(--primary);
 
-    font-size: 8px;
+    font-size: 10px;
 
     font-weight: 700;
 
@@ -1842,7 +1843,7 @@ button {
 
     color: #64748b;
 
-    font-size: 10px;
+    font-size: 12px;
 
     border-top: 1px solid #e2e8f0;
 
@@ -1867,7 +1868,7 @@ button {
 
     .page-header h2 {
 
-        font-size: 20px;
+        font-size: 22px;
     }
 
 
@@ -1889,25 +1890,25 @@ button {
 
         height: 40px;
 
-        font-size: 14px;
+        font-size: 16px;
     }
 
 
     .gaiola-info h3 {
 
-        font-size: 11px;
+        font-size: 13px;
     }
 
 
     .gaiola-casal {
 
-        font-size: 8px;
+        font-size: 10px;
     }
 
 
     .status-badge {
 
-        font-size: 6px;
+        font-size: 8px;
 
         padding:
             5px
@@ -1917,7 +1918,7 @@ button {
 
     .ovoscopia-alert {
 
-        font-size: 6px;
+        font-size: 8px;
 
         padding:
             4px
@@ -1933,7 +1934,7 @@ button {
 
     .detail-title h2 {
 
-        font-size: 17px;
+        font-size: 19px;
     }
 
 
@@ -1992,13 +1993,13 @@ button {
 
     .brand h1 {
 
-        font-size: 14px;
+        font-size: 16px;
     }
 
 
     .header-status {
 
-        font-size: 7px;
+        font-size: 9px;
     }
 
 
@@ -2017,7 +2018,7 @@ button {
             8px
             5px;
 
-        font-size: 10px;
+        font-size: 11px;
     }
 
 
